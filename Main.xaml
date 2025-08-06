@@ -576,7 +576,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <Transition.To>
-                    <State x:Name="__ReferenceID0" sap2010:Annotation.AnnotationText="자재가용체크결과를 다운로드 함" DisplayName="02. 자재가용체크결과 다운로드" sap:VirtualizedContainerService.HintSize="652,2316" sap2010:WorkflowViewState.IdRef="State_7">
+                    <State x:Name="__ReferenceID0" sap2010:Annotation.AnnotationText="자재가용체크결과를 다운로드 함" DisplayName="02. 자재가용체크결과 다운로드" sap:VirtualizedContainerService.HintSize="219,108" sap2010:WorkflowViewState.IdRef="State_7">
                       <State.Entry>
                         <TryCatch DisplayName="Try catch - 반복 프로세스 예제" sap:VirtualizedContainerService.HintSize="606,1844" sap2010:WorkflowViewState.IdRef="TryCatch_9">
                           <sap:WorkflowViewStateService.ViewState>
@@ -1826,9 +1826,9 @@
                                           </sap:WorkflowViewStateService.ViewState>
                                           <Transition.Condition>[errorEXST = False]</Transition.Condition>
                                           <Transition.To>
-                                            <State x:Name="__ReferenceID6" sap2010:Annotation.AnnotationText="작업파일 백업 및 결과 메일 발송" DisplayName="77. 최종 작업 수행" sap:VirtualizedContainerService.HintSize="208,103" sap2010:WorkflowViewState.IdRef="State_3">
+                                            <State x:Name="__ReferenceID6" sap2010:Annotation.AnnotationText="작업파일 백업 및 결과 메일 발송" DisplayName="77. 최종 작업 수행" sap:VirtualizedContainerService.HintSize="1092,6435" sap2010:WorkflowViewState.IdRef="State_3">
                                               <State.Entry>
-                                                <TryCatch DisplayName="Try catch - 최종 작업 수행" sap:VirtualizedContainerService.HintSize="1046,5820" sap2010:WorkflowViewState.IdRef="TryCatch_8">
+                                                <TryCatch DisplayName="Try catch - 최종 작업 수행" sap:VirtualizedContainerService.HintSize="1046,6017" sap2010:WorkflowViewState.IdRef="TryCatch_8">
                                                   <sap:WorkflowViewStateService.ViewState>
                                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1836,7 +1836,7 @@
                                                     </scg:Dictionary>
                                                   </sap:WorkflowViewStateService.ViewState>
                                                   <TryCatch.Try>
-                                                    <Sequence DisplayName="Try Sequence - 최종 작업 수행" sap:VirtualizedContainerService.HintSize="1008,5593" sap2010:WorkflowViewState.IdRef="Sequence_80">
+                                                    <Sequence DisplayName="Try Sequence - 최종 작업 수행" sap:VirtualizedContainerService.HintSize="1008,5790" sap2010:WorkflowViewState.IdRef="Sequence_80">
                                                       <sap:WorkflowViewStateService.ViewState>
                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1860,7 +1860,7 @@
                                                           <InArgument x:TypeArguments="x:Boolean">False</InArgument>
                                                         </Assign.Value>
                                                       </Assign>
-                                                      <Sequence DisplayName="77-01. 작업 결과 백업" sap:VirtualizedContainerService.HintSize="966,954" sap2010:WorkflowViewState.IdRef="Sequence_76">
+                                                      <Sequence DisplayName="77-01. 작업 결과 백업" sap:VirtualizedContainerService.HintSize="966,1151" sap2010:WorkflowViewState.IdRef="Sequence_76">
                                                         <sap:WorkflowViewStateService.ViewState>
                                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1877,14 +1877,29 @@
                                                         </Assign>
                                                         <ui:LogMessage DisplayName="Log message" sap:VirtualizedContainerService.HintSize="426,91" sap2010:WorkflowViewState.IdRef="LogMessage_76" Level="Info" Message="[logMSG + &quot; 시작&quot;]" />
                                                         <Delay DisplayName="Delay - 1초" Duration="00:00:01" sap:VirtualizedContainerService.HintSize="426,22" sap2010:WorkflowViewState.IdRef="Delay_58" />
-                                                        <Sequence DisplayName="최종작업된 관리파일 옮기기" sap:VirtualizedContainerService.HintSize="426,249" sap2010:WorkflowViewState.IdRef="Sequence_150">
+                                                        <Sequence DisplayName="최종작업된 관리파일 옮기기" sap:VirtualizedContainerService.HintSize="426,446" sap2010:WorkflowViewState.IdRef="Sequence_150">
                                                           <sap:WorkflowViewStateService.ViewState>
                                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                                             </scg:Dictionary>
                                                           </sap:WorkflowViewStateService.ViewState>
-                                                          <ui:CopyFile ContinueOnError="{x:Null}" Destination="[configDIC(&quot;PS_PATH_OUTPUT&quot;)+Now.ToString(&quot;yyyy.MM.dd&quot;)+&quot;_&quot;+configDIC(&quot;FILE_NAME_RESULT&quot;)]" DisplayName="Copy File - OUTPUT폴더로 복사" sap:VirtualizedContainerService.HintSize="384,157" sap2010:WorkflowViewState.IdRef="CopyFile_4" Overwrite="True" Path="[configDIC(&quot;PS_PATH_TEMP&quot;)+configDIC(&quot;FILE_NAME_RESULT&quot;)]" />
+                                                          <ui:CopyFile ContinueOnError="{x:Null}" Destination="[configDIC(&quot;PS_PATH_OUTPUT&quot;)+Now.ToString(&quot;yyyy.MM.dd&quot;)+&quot;_&quot;+configDIC(&quot;FILE_NAME_DELETE&quot;)]" DisplayName="Copy File - OUTPUT폴더로 복사" sap:VirtualizedContainerService.HintSize="384,157" sap2010:WorkflowViewState.IdRef="CopyFile_4" Overwrite="True" Path="[configDIC(&quot;PS_PATH_TEMP&quot;)+configDIC(&quot;FILE_NAME_DELETE&quot;)]">
+                                                            <sap:WorkflowViewStateService.ViewState>
+                                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                              </scg:Dictionary>
+                                                            </sap:WorkflowViewStateService.ViewState>
+                                                          </ui:CopyFile>
+                                                          <ui:CopyFile ContinueOnError="{x:Null}" Destination="[configDIC(&quot;PS_PATH_OUTPUT&quot;)+Now.ToString(&quot;yyyy.MM.dd&quot;)+&quot;_&quot;+configDIC(&quot;FILE_NAME_RESULT&quot;)]" DisplayName="Copy File - OUTPUT폴더로 복사" sap:VirtualizedContainerService.HintSize="384,157" sap2010:WorkflowViewState.IdRef="CopyFile_5" Overwrite="True" Path="[configDIC(&quot;PS_PATH_TEMP&quot;)+configDIC(&quot;FILE_NAME_RESULT&quot;)]">
+                                                            <sap:WorkflowViewStateService.ViewState>
+                                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                              </scg:Dictionary>
+                                                            </sap:WorkflowViewStateService.ViewState>
+                                                          </ui:CopyFile>
                                                         </Sequence>
                                                         <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke workflow file - 작업 파일 백업" sap:VirtualizedContainerService.HintSize="426,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_27" UnSafe="False" WorkflowFileName="[Path.Combine(commonPTH, &quot;XAML\AUTO_BACKUP.xaml&quot;)]">
                                                           <ui:InvokeWorkflowFile.Arguments>
