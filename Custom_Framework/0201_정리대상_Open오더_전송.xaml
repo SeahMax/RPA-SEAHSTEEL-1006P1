@@ -129,7 +129,7 @@
           <av:PointCollection x:Key="ConnectorLocation">300,235.5 300,286.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence sap2010:Annotation.AnnotationText="해당 단위 프로세스에서 사용될 변수 설정 및 초기화" DisplayName="02-01-01. Configuration" sap:VirtualizedContainerService.HintSize="606,3895" sap2010:WorkflowViewState.IdRef="Sequence_1">
+      <Sequence sap2010:Annotation.AnnotationText="해당 단위 프로세스에서 사용될 변수 설정 및 초기화" DisplayName="02-01-01. Configuration" sap:VirtualizedContainerService.HintSize="200,108" sap2010:WorkflowViewState.IdRef="Sequence_1">
         <Sequence.Variables>
           <Variable x:TypeArguments="x:String" Default="[Path.Combine(sharePTH, &quot;\세아제강\생산계획팀\대경및ERW스케쥴링\Config\Config.xlsx&quot;)]" Name="shareExcelConfigFilePTH" />
           <Variable x:TypeArguments="x:String" Default="대경및ERW스케쥴링_CONFIG" Name="configAssetNM" />
@@ -445,7 +445,7 @@
                   <av:PointCollection x:Key="ConnectorLocation">300,514 300,576</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence sap2010:Annotation.AnnotationText="requestfile to inputfile 전체 foreach" DisplayName="02-01-02. 오픈오더 발송" sap:VirtualizedContainerService.HintSize="200,108" sap2010:WorkflowViewState.IdRef="Sequence_147">
+              <Sequence sap2010:Annotation.AnnotationText="requestfile to inputfile 전체 foreach" DisplayName="02-01-02. 오픈오더 발송" sap:VirtualizedContainerService.HintSize="1092,5752" sap2010:WorkflowViewState.IdRef="Sequence_147">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:String" Name="downFilePTH" />
                   <Variable x:TypeArguments="sd:DataTable" Name="salesMalilDT" />
@@ -866,7 +866,7 @@
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'GridViewAllItems  SAPGU...'" sap:VirtualizedContainerService.HintSize="721,106" sap2010:WorkflowViewState.IdRef="Click_50" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                        <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'GridViewAllItems  SAPGU...'" sap:VirtualizedContainerService.HintSize="721,106" sap2010:WorkflowViewState.IdRef="Click_50" KeyModifiers="None" MouseButton="BTN_LEFT">
                           <ui:Click.CursorPosition>
                             <ui:CursorPosition Position="Center">
                               <ui:CursorPosition.OffsetX>
@@ -903,7 +903,7 @@
                                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button  저장 (Ctrl+S)'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_46" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                              <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button  저장 (Ctrl+S)'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_46" KeyModifiers="None" MouseButton="BTN_LEFT">
                                 <ui:Click.CursorPosition>
                                   <ui:CursorPosition Position="Center">
                                     <ui:CursorPosition.OffsetX>
@@ -1008,7 +1008,7 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </ui:ExcelApplicationScope>
-                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_38" Level="Info" Message="[resultCNT.ToString+&quot;건 Open오더 전송 완료&quot;]" />
+                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_38" Level="Info" Message="[targetDT.Rows.Count.ToString+&quot;건 Open오더 전송 완료&quot;]" />
                             </Sequence>
                           </If.Then>
                           <If.Else>
