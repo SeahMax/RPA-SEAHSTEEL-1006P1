@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1124,841</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1090,841</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="34">
@@ -79,6 +79,7 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart sap2010:Annotation.AnnotationText="작성할 단위 Step Sequence는 최대한 나눌 수 있는만큼 나눠서 작성함&#xA; - 반복 없는 순차적 실행" DisplayName="0101_자재가용체크결과_다운로드" sap:VirtualizedContainerService.HintSize="644,776" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -1017,13 +1018,13 @@
                   <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="686,91" sap2010:WorkflowViewState.IdRef="LogMessage_35" Level="Info" Message="[&quot;대상건수 : &quot;+ ExtractDataTable.Rows.Count.ToString]" />
                   <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="686,51" sap2010:WorkflowViewState.IdRef="CommentOut_2">
                     <ui:CommentOut.Body>
-                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="618,143" sap2010:WorkflowViewState.IdRef="Sequence_168">
+                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="618,831" sap2010:WorkflowViewState.IdRef="Sequence_168">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[ExtractDataTable]" DisplayName="For Each Row - 영업사원메일주소 UPDATE" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+                        <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[ExtractDataTable]" DisplayName="For Each Row - 영업사원메일주소 UPDATE" sap:VirtualizedContainerService.HintSize="224,51" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
                           <ui:ForEachRow.Body>
                             <ActivityAction x:TypeArguments="sd:DataRow">
                               <ActivityAction.Argument>
@@ -1186,12 +1187,12 @@
                                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <Assign DisplayName="Assign - 가장큰 Rank값" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_104">
+                                      <Assign DisplayName="Assign - 가장큰 Rank값(255는 제외)" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_104">
                                         <Assign.To>
                                           <OutArgument x:TypeArguments="x:Object">[row("RANK수정")]</OutArgument>
                                         </Assign.To>
                                         <Assign.Value>
-                                          <InArgument x:TypeArguments="x:Object">[sameOuterDT.AsEnumerable().Max(Function(row) CInt(row("RANK").ToString)).ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String">[sameOuterDT.AsEnumerable().Where(Function(row) row("RANK").ToString&lt;&gt;"255").Max(Function(row) CInt(row("RANK").ToString)).ToString]</InArgument>
                                         </Assign.Value>
                                       </Assign>
                                     </Sequence>
