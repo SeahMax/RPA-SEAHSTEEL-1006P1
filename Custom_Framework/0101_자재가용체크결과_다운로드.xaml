@@ -79,7 +79,6 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart sap2010:Annotation.AnnotationText="작성할 단위 Step Sequence는 최대한 나눌 수 있는만큼 나눠서 작성함&#xA; - 반복 없는 순차적 실행" DisplayName="0101_자재가용체크결과_다운로드" sap:VirtualizedContainerService.HintSize="644,776" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -387,7 +386,7 @@
               <av:PointCollection x:Key="ConnectorLocation">300,394 300,456</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence sap2010:Annotation.AnnotationText="requestfile to inputfile 전체 foreach" DisplayName="01-01-02. 다운로드" sap:VirtualizedContainerService.HintSize="1291,10902" sap2010:WorkflowViewState.IdRef="Sequence_147">
+          <Sequence sap2010:Annotation.AnnotationText="requestfile to inputfile 전체 foreach" DisplayName="01-01-02. 다운로드" sap:VirtualizedContainerService.HintSize="1261,6768" sap2010:WorkflowViewState.IdRef="Sequence_147">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="downFilePTH" />
               <Variable x:TypeArguments="sd:DataTable" Name="salesMalilDT" />
@@ -399,7 +398,7 @@
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Assign DisplayName="Assign - 결과파일경로" sap:VirtualizedContainerService.HintSize="1249,60" sap2010:WorkflowViewState.IdRef="Assign_65">
+            <Assign DisplayName="Assign - 결과파일경로" sap:VirtualizedContainerService.HintSize="1219,60" sap2010:WorkflowViewState.IdRef="Assign_65">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[resultFilePTH]</OutArgument>
               </Assign.To>
@@ -407,7 +406,7 @@
                 <InArgument x:TypeArguments="x:String">[in_configDIC("PS_PATH_TEMP")+in_configDIC("FILE_NAME_RESULT")]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Assign - 다운로드 파일경로" sap:VirtualizedContainerService.HintSize="1249,60" sap2010:WorkflowViewState.IdRef="Assign_93">
+            <Assign DisplayName="Assign - 다운로드 파일경로" sap:VirtualizedContainerService.HintSize="1219,60" sap2010:WorkflowViewState.IdRef="Assign_93">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[downFilePTH]</OutArgument>
               </Assign.To>
@@ -415,7 +414,7 @@
                 <InArgument x:TypeArguments="x:String">[in_configDIC("PS_PATH_TEMP")+in_configDIC("FILE_NAME_DOWNLOAD")]</InArgument>
               </Assign.Value>
             </Assign>
-            <If Condition="[File.Exists(resultFilePTH)]" DisplayName="If - 기존 파일 존재시 Pass" sap:VirtualizedContainerService.HintSize="1249,10579" sap2010:WorkflowViewState.IdRef="If_45">
+            <If Condition="[File.Exists(resultFilePTH)]" DisplayName="If - 기존 파일 존재시 Pass" sap:VirtualizedContainerService.HintSize="1219,6445" sap2010:WorkflowViewState.IdRef="If_45">
               <If.Then>
                 <Sequence sap:VirtualizedContainerService.HintSize="476,483" sap2010:WorkflowViewState.IdRef="Sequence_130">
                   <sap:WorkflowViewStateService.ViewState>
@@ -456,14 +455,14 @@
                 </Sequence>
               </If.Then>
               <If.Else>
-                <Sequence DisplayName="자재가용재고 작성" sap:VirtualizedContainerService.HintSize="728,10421" sap2010:WorkflowViewState.IdRef="Sequence_146">
+                <Sequence DisplayName="자재가용재고 작성" sap:VirtualizedContainerService.HintSize="698,6287" sap2010:WorkflowViewState.IdRef="Sequence_146">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:CopyFile ContinueOnError="{x:Null}" Destination="[resultFilePTH]" DisplayName="Copy File - 처리 결과 템플릿 결과파일로 복사" sap:VirtualizedContainerService.HintSize="686,157" sap2010:WorkflowViewState.IdRef="CopyFile_15" Overwrite="True" Path="[in_configDIC(&quot;PS_PATH_TEMPLATE&quot;) + in_configDIC(&quot;TEMPLATE_FILE_NAME_RESULT&quot;)]">
+                  <ui:CopyFile ContinueOnError="{x:Null}" Destination="[resultFilePTH]" DisplayName="Copy File - 처리 결과 템플릿 결과파일로 복사" sap:VirtualizedContainerService.HintSize="656,157" sap2010:WorkflowViewState.IdRef="CopyFile_15" Overwrite="True" Path="[in_configDIC(&quot;PS_PATH_TEMPLATE&quot;) + in_configDIC(&quot;TEMPLATE_FILE_NAME_RESULT&quot;)]">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -471,7 +470,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:CopyFile>
-                  <ui:CopyFile ContinueOnError="{x:Null}" Destination="[in_configDIC(&quot;PS_PATH_TEMP&quot;)+in_configDIC(&quot;FILE_NAME_DELETE&quot;)]" DisplayName="Copy File - 처리 결과 템플릿 정리대상으로 복사" sap:VirtualizedContainerService.HintSize="686,157" sap2010:WorkflowViewState.IdRef="CopyFile_17" Overwrite="True" Path="[in_configDIC(&quot;PS_PATH_TEMPLATE&quot;) + in_configDIC(&quot;TEMPLATE_FILE_NAME_RESULT&quot;)]">
+                  <ui:CopyFile ContinueOnError="{x:Null}" Destination="[in_configDIC(&quot;PS_PATH_TEMP&quot;)+in_configDIC(&quot;FILE_NAME_DELETE&quot;)]" DisplayName="Copy File - 처리 결과 템플릿 정리대상으로 복사" sap:VirtualizedContainerService.HintSize="656,157" sap2010:WorkflowViewState.IdRef="CopyFile_17" Overwrite="True" Path="[in_configDIC(&quot;PS_PATH_TEMPLATE&quot;) + in_configDIC(&quot;TEMPLATE_FILE_NAME_RESULT&quot;)]">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -479,7 +478,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:CopyFile>
-                  <ui:CopyFile ContinueOnError="{x:Null}" Destination="[in_configDIC(&quot;PS_PATH_TEMP&quot;)+in_configDIC(&quot;FILE_NAME_CHECK&quot;)]" DisplayName="Copy File - 처리 결과 템플릿 현업검증용으로 복사" sap:VirtualizedContainerService.HintSize="686,157" sap2010:WorkflowViewState.IdRef="CopyFile_18" Overwrite="True" Path="[in_configDIC(&quot;PS_PATH_TEMPLATE&quot;) + in_configDIC(&quot;TEMPLATE_FILE_NAME_RESULT&quot;)]">
+                  <ui:CopyFile ContinueOnError="{x:Null}" Destination="[in_configDIC(&quot;PS_PATH_TEMP&quot;)+in_configDIC(&quot;FILE_NAME_CHECK&quot;)]" DisplayName="Copy File - 처리 결과 템플릿 현업검증용으로 복사" sap:VirtualizedContainerService.HintSize="656,157" sap2010:WorkflowViewState.IdRef="CopyFile_18" Overwrite="True" Path="[in_configDIC(&quot;PS_PATH_TEMPLATE&quot;) + in_configDIC(&quot;TEMPLATE_FILE_NAME_RESULT&quot;)]">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -487,7 +486,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:CopyFile>
-                  <ui:CopyFile ContinueOnError="{x:Null}" Destination="[in_configDIC(&quot;PS_PATH_TEMP&quot;)+in_configDIC(&quot;FILE_NAME_SALESMAN_EMAIL&quot;)]" DisplayName="Copy File - 영업사원 메일Master 복사" sap:VirtualizedContainerService.HintSize="686,157" sap2010:WorkflowViewState.IdRef="CopyFile_16" Overwrite="True" Path="[in_configDIC(&quot;PS_SHR_PATH_STANDARD&quot;)+in_configDIC(&quot;FILE_NAME_SALESMAN_EMAIL&quot;)]">
+                  <ui:CopyFile ContinueOnError="{x:Null}" Destination="[in_configDIC(&quot;PS_PATH_TEMP&quot;)+in_configDIC(&quot;FILE_NAME_SALESMAN_EMAIL&quot;)]" DisplayName="Copy File - 영업사원 메일Master 복사" sap:VirtualizedContainerService.HintSize="656,157" sap2010:WorkflowViewState.IdRef="CopyFile_16" Overwrite="True" Path="[in_configDIC(&quot;PS_SHR_PATH_STANDARD&quot;)+in_configDIC(&quot;FILE_NAME_SALESMAN_EMAIL&quot;)]">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -495,7 +494,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:CopyFile>
-                  <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope - 영업사원 메일 Master파일 읽기" sap:VirtualizedContainerService.HintSize="686,260" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_21" WorkbookPath="[in_configDIC(&quot;PS_PATH_TEMP&quot;)+in_configDIC(&quot;FILE_NAME_SALESMAN_EMAIL&quot;)]">
+                  <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope - 영업사원 메일 Master파일 읽기" sap:VirtualizedContainerService.HintSize="656,260" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_21" WorkbookPath="[in_configDIC(&quot;PS_PATH_TEMP&quot;)+in_configDIC(&quot;FILE_NAME_SALESMAN_EMAIL&quot;)]">
                     <ui:ExcelApplicationScope.Body>
                       <ActivityAction x:TypeArguments="ui:WorkbookApplication">
                         <ActivityAction.Argument>
@@ -524,7 +523,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:ExcelApplicationScope>
-                  <If Condition="[File.Exists(downFilePTH)]" DisplayName="If - 다운로드파일 존재시 삭제" sap:VirtualizedContainerService.HintSize="686,266" sap2010:WorkflowViewState.IdRef="If_54">
+                  <If Condition="[File.Exists(downFilePTH)]" DisplayName="If - 다운로드파일 존재시 삭제" sap:VirtualizedContainerService.HintSize="656,266" sap2010:WorkflowViewState.IdRef="If_54">
                     <If.Then>
                       <ui:Delete ContinueOnError="{x:Null}" sap:VirtualizedContainerService.HintSize="284,79" sap2010:WorkflowViewState.IdRef="Delete_3" Path="[downFilePTH]" />
                     </If.Then>
@@ -538,7 +537,7 @@
                       </Sequence>
                     </If.Else>
                   </If>
-                  <Sequence DisplayName="1. 자재가용체크결과 다운로드" sap:VirtualizedContainerService.HintSize="686,4200" sap2010:WorkflowViewState.IdRef="Sequence_151">
+                  <Sequence DisplayName="1. 자재가용체크결과 다운로드" sap:VirtualizedContainerService.HintSize="656,66" sap2010:WorkflowViewState.IdRef="Sequence_151">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:String" Name="fromDateSTR" />
                       <Variable x:TypeArguments="x:String" Name="toDateSTR" />
@@ -547,7 +546,7 @@
                     </Sequence.Variables>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
@@ -944,9 +943,9 @@
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:WindowScope>
                   </Sequence>
-                  <Delay DisplayName="Delay-3초후 닫기" Duration="00:00:03" sap:VirtualizedContainerService.HintSize="686,22" sap2010:WorkflowViewState.IdRef="Delay_4" />
-                  <ui:KillProcess ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="686,132" sap2010:WorkflowViewState.IdRef="KillProcess_2" ProcessName="Excel" />
-                  <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope - 작성중 엑셀파일 읽기" sap:VirtualizedContainerService.HintSize="686,260" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_19" WorkbookPath="[downFilePTH]">
+                  <Delay DisplayName="Delay-3초후 닫기" Duration="00:00:03" sap:VirtualizedContainerService.HintSize="656,22" sap2010:WorkflowViewState.IdRef="Delay_4" />
+                  <ui:KillProcess ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="656,132" sap2010:WorkflowViewState.IdRef="KillProcess_2" ProcessName="Excel" />
+                  <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope - 작성중 엑셀파일 읽기" sap:VirtualizedContainerService.HintSize="656,260" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_19" WorkbookPath="[downFilePTH]">
                     <ui:ExcelApplicationScope.Body>
                       <ActivityAction x:TypeArguments="ui:WorkbookApplication">
                         <ActivityAction.Argument>
@@ -969,7 +968,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:ExcelApplicationScope>
-                  <ui:FilterDataTable DataTable="[ExtractDataTable]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="686,59" sap2010:WorkflowViewState.IdRef="FilterDataTable_3" OutputDataTable="[ExtractDataTable]" SelectColumnsMode="Keep">
+                  <ui:FilterDataTable DataTable="[ExtractDataTable]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="656,59" sap2010:WorkflowViewState.IdRef="FilterDataTable_3" OutputDataTable="[ExtractDataTable]" SelectColumnsMode="Keep">
                     <ui:FilterDataTable.Filters>
                       <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
                         <ui:FilterOperationArgument Operand="{x:Null}" BooleanOperator="And" Operator="NOTEMPTY">
@@ -1003,11 +1002,11 @@
                       </scg:List>
                     </ui:FilterDataTable.SelectColumns>
                   </ui:FilterDataTable>
-                  <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="영업사원메일" DataTable="[ExtractDataTable]" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="686,22" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_1" />
-                  <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="RANK수정" DataTable="[ExtractDataTable]" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="686,22" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_2" />
-                  <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="RANK수정결과" DataTable="[ExtractDataTable]" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="686,22" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_3" />
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="686,91" sap2010:WorkflowViewState.IdRef="LogMessage_34" Level="Info" Message="[&quot;다운로드건수 : &quot;+ ExtractDataTable.Rows.Count.ToString]" />
-                  <Assign DisplayName="Assign-영업계획납기일 없는것 제외" sap:VirtualizedContainerService.HintSize="686,60" sap2010:WorkflowViewState.IdRef="Assign_100">
+                  <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="영업사원메일" DataTable="[ExtractDataTable]" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="656,22" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_1" />
+                  <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="RANK수정" DataTable="[ExtractDataTable]" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="656,22" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_2" />
+                  <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="RANK수정결과" DataTable="[ExtractDataTable]" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="656,22" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_3" />
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="656,91" sap2010:WorkflowViewState.IdRef="LogMessage_34" Level="Info" Message="[&quot;다운로드건수 : &quot;+ ExtractDataTable.Rows.Count.ToString]" />
+                  <Assign DisplayName="Assign-영업계획납기일 없는것 제외" sap:VirtualizedContainerService.HintSize="656,60" sap2010:WorkflowViewState.IdRef="Assign_100">
                     <Assign.To>
                       <OutArgument x:TypeArguments="sd:DataTable">[ExtractDataTable]</OutArgument>
                     </Assign.To>
@@ -1015,10 +1014,10 @@
                       <InArgument x:TypeArguments="sd:DataTable">[ExtractDataTable.AsEnumerable().Where(Function(row) Not String.IsNullOrEmpty(row("영업계획납기일").ToString.Trim())).CopyToDataTable()]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="686,91" sap2010:WorkflowViewState.IdRef="LogMessage_35" Level="Info" Message="[&quot;대상건수 : &quot;+ ExtractDataTable.Rows.Count.ToString]" />
-                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="686,51" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="656,91" sap2010:WorkflowViewState.IdRef="LogMessage_35" Level="Info" Message="[&quot;대상건수 : &quot;+ ExtractDataTable.Rows.Count.ToString]" />
+                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="656,51" sap2010:WorkflowViewState.IdRef="CommentOut_2">
                     <ui:CommentOut.Body>
-                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="618,143" sap2010:WorkflowViewState.IdRef="Sequence_168">
+                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="242,143" sap2010:WorkflowViewState.IdRef="Sequence_168">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1095,7 +1094,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:CommentOut>
-                  <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[ExtractDataTable]" DisplayName="For Each Row - 영업사원메일주소 UPDATE" sap:VirtualizedContainerService.HintSize="686,1477" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+                  <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[ExtractDataTable]" DisplayName="For Each Row - 영업사원메일주소 UPDATE" sap:VirtualizedContainerService.HintSize="656,1477" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
                     <ui:ForEachRow.Body>
                       <ActivityAction x:TypeArguments="sd:DataRow">
                         <ActivityAction.Argument>
@@ -1187,12 +1186,12 @@
                                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <Assign DisplayName="Assign - 252보다 작은값중 최대값" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_104">
+                                      <Assign DisplayName="Assign - 252보다 작은값중 최대값" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_110">
                                         <Assign.To>
                                           <OutArgument x:TypeArguments="x:Object">[row("RANK수정")]</OutArgument>
                                         </Assign.To>
                                         <Assign.Value>
-                                          <InArgument x:TypeArguments="x:String">[sameOuterDT.AsEnumerable().Where(Function(row) row("RANK").ToString&lt;"252").Max(Function(row) CInt(row("RANK").ToString)).ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String">[sameOuterDT.AsEnumerable().Where(Function(row) Cint(row("RANK").ToString)&lt;Cint("252")).Max(Function(row) CInt(row("RANK").ToString)).ToString]</InArgument>
                                         </Assign.Value>
                                       </Assign>
                                     </Sequence>
@@ -1221,7 +1220,7 @@
                                   <ActivityAction.Argument>
                                     <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                                   </ActivityAction.Argument>
-                                  <Sequence sap:VirtualizedContainerService.HintSize="304,149" sap2010:WorkflowViewState.IdRef="Sequence_174">
+                                  <Sequence sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_174">
                                     <Sequence.Variables>
                                       <Variable x:TypeArguments="x:Int32" Name="maxRank" />
                                     </Sequence.Variables>
@@ -1254,7 +1253,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:ForEachRow>
-                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="686,707" sap2010:WorkflowViewState.IdRef="TryCatch_9">
+                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="656,707" sap2010:WorkflowViewState.IdRef="TryCatch_9">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1318,7 +1317,7 @@
                       </Catch>
                     </TryCatch.Catches>
                   </TryCatch>
-                  <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope - 현업검증용" sap:VirtualizedContainerService.HintSize="686,288" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_23" WorkbookPath="[in_configDIC(&quot;PS_PATH_TEMP&quot;)+in_configDIC(&quot;FILE_NAME_CHECK&quot;)]">
+                  <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope - 현업검증용" sap:VirtualizedContainerService.HintSize="656,288" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_23" WorkbookPath="[in_configDIC(&quot;PS_PATH_TEMP&quot;)+in_configDIC(&quot;FILE_NAME_CHECK&quot;)]">
                     <ui:ExcelApplicationScope.Body>
                       <ActivityAction x:TypeArguments="ui:WorkbookApplication">
                         <ActivityAction.Argument>
@@ -1341,7 +1340,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:ExcelApplicationScope>
-                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="686,831" sap2010:WorkflowViewState.IdRef="TryCatch_10">
+                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="656,831" sap2010:WorkflowViewState.IdRef="TryCatch_10">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>

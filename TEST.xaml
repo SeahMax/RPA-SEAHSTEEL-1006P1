@@ -80,7 +80,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
         <av:Size x:Key="ShapeSize">60,75</av:Size>
-        <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,540 430,540</av:PointCollection>
+        <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,440 200,440</av:PointCollection>
         <x:Double x:Key="Height">1163</x:Double>
         <x:Double x:Key="Width">654</x:Double>
       </scg:Dictionary>
@@ -768,14 +768,14 @@
         <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="WriteLine_62" Text="[WorkCodeLIST]" />
       </Sequence>
     </FlowStep>
-    <FlowStep>
+    <FlowStep x:Name="__ReferenceID0">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">0,407</av:Point>
           <av:Size x:Key="ShapeSize">200,66</av:Size>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence DisplayName="자재가용재고 작성" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_265">
+      <Sequence DisplayName="자재가용재고 작성" sap:VirtualizedContainerService.HintSize="728,3205" sap2010:WorkflowViewState.IdRef="Sequence_265">
         <Sequence.Variables>
           <Variable x:TypeArguments="sd:DataTable" Name="salesMalilDT" />
           <Variable x:TypeArguments="sd:DataTable" Name="ExtractDataTable" />
@@ -786,7 +786,7 @@
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope - 영업사원 메일 Master파일 읽기" sap:VirtualizedContainerService.HintSize="656,260" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_24" WorkbookPath="C:\RPA\세아제강\생산계획팀\대경및ERW스케쥴링\Work\Temp\영업사원이메일주소.xlsx">
+        <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope - 영업사원 메일 Master파일 읽기" sap:VirtualizedContainerService.HintSize="686,260" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_24" WorkbookPath="C:\RPA\세아제강\생산계획팀\대경및ERW스케쥴링\Work\Temp\영업사원이메일주소.xlsx">
           <ui:ExcelApplicationScope.Body>
             <ActivityAction x:TypeArguments="ui:WorkbookApplication">
               <ActivityAction.Argument>
@@ -815,7 +815,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
         </ui:ExcelApplicationScope>
-        <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope - 작성중 엑셀파일 읽기" sap:VirtualizedContainerService.HintSize="656,260" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_25" WorkbookPath="C:\RPA\세아제강\생산계획팀\대경및ERW스케쥴링\Work\Temp\자재가용체크결과.xlsx">
+        <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope - 작성중 엑셀파일 읽기" sap:VirtualizedContainerService.HintSize="686,260" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_25" WorkbookPath="C:\RPA\세아제강\생산계획팀\대경및ERW스케쥴링\Work\Temp\자재가용체크결과.xlsx">
           <ui:ExcelApplicationScope.Body>
             <ActivityAction x:TypeArguments="ui:WorkbookApplication">
               <ActivityAction.Argument>
@@ -838,7 +838,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
         </ui:ExcelApplicationScope>
-        <ui:FilterDataTable DataTable="[ExtractDataTable]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="656,59" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[ExtractDataTable]" SelectColumnsMode="Keep">
+        <ui:FilterDataTable DataTable="[ExtractDataTable]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="686,59" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[ExtractDataTable]" SelectColumnsMode="Keep">
           <ui:FilterDataTable.Filters>
             <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
               <ui:FilterOperationArgument Operand="{x:Null}" BooleanOperator="And" Operator="NOTEMPTY">
@@ -872,10 +872,10 @@
             </scg:List>
           </ui:FilterDataTable.SelectColumns>
         </ui:FilterDataTable>
-        <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="영업사원메일" DataTable="[ExtractDataTable]" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="656,22" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_1" />
-        <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="RANK수정" DataTable="[ExtractDataTable]" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="656,22" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_2" />
-        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="656,91" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;다운로드건수 : &quot;+ ExtractDataTable.Rows.Count.ToString]" />
-        <Assign DisplayName="Assign-영업계획납기일 없는것 제외" sap:VirtualizedContainerService.HintSize="656,60" sap2010:WorkflowViewState.IdRef="Assign_213">
+        <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="영업사원메일" DataTable="[ExtractDataTable]" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="686,22" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_1" />
+        <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="RANK수정" DataTable="[ExtractDataTable]" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="686,22" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_2" />
+        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="686,91" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;다운로드건수 : &quot;+ ExtractDataTable.Rows.Count.ToString]" />
+        <Assign DisplayName="Assign-영업계획납기일 없는것 제외" sap:VirtualizedContainerService.HintSize="686,60" sap2010:WorkflowViewState.IdRef="Assign_213">
           <Assign.To>
             <OutArgument x:TypeArguments="sd:DataTable">[ExtractDataTable]</OutArgument>
           </Assign.To>
@@ -883,14 +883,14 @@
             <InArgument x:TypeArguments="sd:DataTable">[ExtractDataTable.AsEnumerable().Where(Function(row) Not String.IsNullOrEmpty(row("영업계획납기일").ToString.Trim())).CopyToDataTable()]</InArgument>
           </Assign.Value>
         </Assign>
-        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="656,91" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[&quot;대상건수 : &quot;+ ExtractDataTable.Rows.Count.ToString]" />
-        <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[ExtractDataTable]" DisplayName="For Each Row - 영업사원메일주소 UPDATE" sap:VirtualizedContainerService.HintSize="656,1477" sap2010:WorkflowViewState.IdRef="ForEachRow_6">
+        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="686,91" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[&quot;대상건수 : &quot;+ ExtractDataTable.Rows.Count.ToString]" />
+        <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[ExtractDataTable]" DisplayName="For Each Row " sap:VirtualizedContainerService.HintSize="686,1538" sap2010:WorkflowViewState.IdRef="ForEachRow_6">
           <ui:ForEachRow.Body>
             <ActivityAction x:TypeArguments="sd:DataRow">
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
               </ActivityAction.Argument>
-              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="606,1329" sap2010:WorkflowViewState.IdRef="Sequence_263">
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="636,1390" sap2010:WorkflowViewState.IdRef="Sequence_263">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="sd:DataRow[]" Name="matchedRows" />
                   <Variable x:TypeArguments="sd:DataTable" Name="sameOuterDT" />
@@ -900,57 +900,15 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Assign DisplayName="Assign - 영업사원 메일주소 넣기" sap:VirtualizedContainerService.HintSize="564,60" sap2010:WorkflowViewState.IdRef="Assign_205">
-                  <Assign.To>
-                    <OutArgument x:TypeArguments="sd:DataRow[]">[matchedRows]</OutArgument>
-                  </Assign.To>
-                  <Assign.Value>
-                    <InArgument x:TypeArguments="sd:DataRow[]">[salesMalilDT.Select("이름 = '" + row("사원명").ToString+ "'")]</InArgument>
-                  </Assign.Value>
-                </Assign>
-                <If Condition="[matchedRows.Length &gt; 0 AndAlso row(&quot;RANK&quot;).ToString = &quot;0&quot; AndAlso CDate(row(&quot;영업계획납기일&quot;)).ToString(&quot;yyyy-MM-dd&quot;) &lt; Now.ToString(&quot;yyyy-MM-dd&quot;)]" DisplayName="If - Rank 0이면서 영업계획납기일이 지난경우 삭제메일링 대상" sap:VirtualizedContainerService.HintSize="564,339" sap2010:WorkflowViewState.IdRef="If_88">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <If.Then>
-                    <Sequence sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_261">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_206">
-                        <Assign.To>
-                          <OutArgument x:TypeArguments="x:Object">[row("영업사원메일")]</OutArgument>
-                        </Assign.To>
-                        <Assign.Value>
-                          <InArgument x:TypeArguments="x:String">[matchedRows(0)("이메일").ToString]</InArgument>
-                        </Assign.Value>
-                      </Assign>
-                    </Sequence>
-                  </If.Then>
-                  <If.Else>
-                    <Sequence sap2010:WorkflowViewState.IdRef="Sequence_262">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                    </Sequence>
-                  </If.Else>
-                </If>
-                <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="564,758" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="594,1298" sap2010:WorkflowViewState.IdRef="TryCatch_1">
                   <TryCatch.Try>
-                    <Sequence sap:VirtualizedContainerService.HintSize="526,531" sap2010:WorkflowViewState.IdRef="Sequence_268">
+                    <Sequence sap:VirtualizedContainerService.HintSize="556,1071" sap2010:WorkflowViewState.IdRef="Sequence_268">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Assign DisplayName="Assign - 동일외경DT" sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_209">
+                      <Assign DisplayName="Assign - 동일외경DT" sap:VirtualizedContainerService.HintSize="514,60" sap2010:WorkflowViewState.IdRef="Assign_209">
                         <Assign.To>
                           <OutArgument x:TypeArguments="sd:DataTable">[sameOuterDT]</OutArgument>
                         </Assign.To>
@@ -958,22 +916,12 @@
                           <InArgument x:TypeArguments="sd:DataTable">[ExtractDataTable.AsEnumerable().Where(Function(trow) trow("작업장").ToString = row("작업장").ToString AndAlso trow("외경").ToString = row("외경").ToString AndAlso Cdate(trow("영업계획납기일")).ToString("yyyyMM") = Cdate(row("영업계획납기일")).ToString("yyyyMM")).CopyToDataTable]</InArgument>
                         </Assign.Value>
                       </Assign>
-                      <If Condition="[row(&quot;RANK&quot;).ToString = &quot;0&quot; AndAlso CDate(row(&quot;영업계획납기일&quot;)).ToString(&quot;yyyy-MM-dd&quot;) &gt;= Now.ToString(&quot;yyyy-MM-dd&quot;)]" DisplayName="If - Rank 0이면서 동일외경이 존재하면 Max Rank값을 취한다 " sap:VirtualizedContainerService.HintSize="484,339" sap2010:WorkflowViewState.IdRef="If_89">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <If.Then>
-                          <Sequence sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_266">
-                            <Sequence.Variables>
-                              <Variable x:TypeArguments="x:String" Name="maxRank" />
-                            </Sequence.Variables>
+                      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="514,230" sap2010:WorkflowViewState.IdRef="CommentOut_8">
+                        <ui:CommentOut.Body>
+                          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_370">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                             <Assign DisplayName="Assign - 가장큰 Rank값" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_211">
@@ -984,6 +932,60 @@
                                 <InArgument x:TypeArguments="x:Object">[sameOuterDT.AsEnumerable().Max(Function(row) CInt(row("RANK").ToString)).ToString]</InArgument>
                               </Assign.Value>
                             </Assign>
+                          </Sequence>
+                        </ui:CommentOut.Body>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:CommentOut>
+                      <If Condition="[row(&quot;RANK&quot;).ToString = &quot;0&quot; AndAlso CDate(row(&quot;영업계획납기일&quot;)).ToString(&quot;yyyy-MM-dd&quot;) &gt;= Now.ToString(&quot;yyyy-MM-dd&quot;)]" DisplayName="If - Rank 0이면서 동일외경이 존재하면 Max Rank값을 취한다 " sap:VirtualizedContainerService.HintSize="514,609" sap2010:WorkflowViewState.IdRef="If_89">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <If.Then>
+                          <Sequence sap:VirtualizedContainerService.HintSize="478,422" sap2010:WorkflowViewState.IdRef="Sequence_266">
+                            <Sequence.Variables>
+                              <Variable x:TypeArguments="x:String" Name="maxRank" />
+                            </Sequence.Variables>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Assign DisplayName="Assign - 252보다 작은값중 최대값" sap:VirtualizedContainerService.HintSize="436,60" sap2010:WorkflowViewState.IdRef="Assign_261">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:Object">[row("RANK수정")]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[sameOuterDT.AsEnumerable().Where(Function(row) Cint(row("RANK").ToString)&lt;Cint("252")).Max(Function(row) CInt(row("RANK").ToString)).ToString]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,230" sap2010:WorkflowViewState.IdRef="CommentOut_10">
+                              <ui:CommentOut.Body>
+                                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_372">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <Assign DisplayName="Assign - 가장큰 Rank값" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_262">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:Object">[row("RANK수정")]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:Object">[sameOuterDT.AsEnumerable().Max(Function(row) CInt(row("RANK").ToString)).ToString]</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                </Sequence>
+                              </ui:CommentOut.Body>
+                            </ui:CommentOut>
                           </Sequence>
                         </If.Then>
                         <If.Else>
@@ -999,7 +1001,7 @@
                     </Sequence>
                   </TryCatch.Try>
                   <TryCatch.Catches>
-                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="530,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="560,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1010,7 +1012,7 @@
                         <ActivityAction.Argument>
                           <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                         </ActivityAction.Argument>
-                        <Sequence sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_269">
+                        <Sequence sap:VirtualizedContainerService.HintSize="304,149" sap2010:WorkflowViewState.IdRef="Sequence_269">
                           <Sequence.Variables>
                             <Variable x:TypeArguments="x:Int32" Name="maxRank" />
                           </Sequence.Variables>
@@ -1038,19 +1040,19 @@
           </ui:ForEachRow.Body>
         </ui:ForEachRow>
         <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="656,22" sap2010:WorkflowViewState.IdRef="Delay_4" />
-        <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope - 다운로드 결과파일 만들기" sap:VirtualizedContainerService.HintSize="656,316" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_26" WorkbookPath="C:\RPA\세아제강\생산계획팀\대경및ERW스케쥴링\Work\Temp\대경및ERW스케쥴링결과2.xlsx">
+        <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope - 다운로드 결과파일 만들기" sap:VirtualizedContainerService.HintSize="656,288" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_26" WorkbookPath="C:\RPA\세아제강\생산계획팀\대경및ERW스케쥴링\Work\Temp\대경및ERW스케쥴링점검.xlsx">
           <ui:ExcelApplicationScope.Body>
             <ActivityAction x:TypeArguments="ui:WorkbookApplication">
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
               </ActivityAction.Argument>
-              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,207" sap2010:WorkflowViewState.IdRef="Sequence_264">
+              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,179" sap2010:WorkflowViewState.IdRef="Sequence_264">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:WriteRange AddHeaders="True" DataTable="[ExtractDataTable]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Sheet1" StartingCell="A1" WorkbookPath="C:\RPA\세아제강\생산계획팀\대경및ERW스케쥴링\Work\Temp\대경및ERW스케쥴링결과.xlsx" />
+                <ui:ExcelAppendRange DataTable="[ExtractDataTable]" DisplayName="Append Range" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelAppendRange_1" SheetName="Sheet1" />
               </Sequence>
             </ActivityAction>
           </ui:ExcelApplicationScope.Body>
@@ -1947,7 +1949,7 @@
         </ui:ForEachRow>
       </Sequence>
     </FlowStep>
-    <FlowStep x:Name="__ReferenceID0">
+    <FlowStep>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">430,507</av:Point>
@@ -1955,7 +1957,7 @@
           <av:PointCollection x:Key="ConnectorLocation">520,140.5 640,140.5 640,176.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence DisplayName="01. targetDR 추출/조회" sap:VirtualizedContainerService.HintSize="684,2880" sap2010:WorkflowViewState.IdRef="Sequence_334">
+      <Sequence DisplayName="01. targetDR 추출/조회" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_334">
         <Sequence.Variables>
           <Variable x:TypeArguments="sd:DataTable" Name="targetDT" />
           <Variable x:TypeArguments="sd:DataRow" Name="targetDR" />
